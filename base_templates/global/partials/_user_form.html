@@ -1,0 +1,22 @@
+<form action="{{form_action}}"  method="POST" class="form-group p-4" >
+    {% csrf_token %}
+        {% for field in form %}
+        
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <div>{{ field }}</div>
+        <!-- {{field.errors}}
+        {% if field.help_text %}
+        <div class="form-text text-muted">{{ field.help_text }}</div>
+        {% endif %} -->
+        <!-- {% if form.non_field_errors %}
+        <div class="errorList">
+            {{form.non_field_errors }}
+        </div>
+        {% endif %} -->
+
+        {% endfor %}
+       
+    <div>
+    <button class="btn btn-primary form-control w-50" type="submit">Send</button>
+    </div>
+</form>

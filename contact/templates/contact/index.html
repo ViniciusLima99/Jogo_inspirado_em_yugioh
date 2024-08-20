@@ -1,0 +1,80 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block block %}
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: auto; /* Permite a rolagem */
+        }
+
+        .background-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+            background: no-repeat center/100% url('{% static 'global/img/yugioh.jpg' %}');
+            background-color: #f0a500;;
+
+        }
+        .user-form-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            color: white;
+            font-size: 20px;
+            max-width: 90vw;
+            max-height: 90vh;
+            box-sizing: border-box; 
+        }
+
+        @media (max-width: 768px) {
+            .user-form-container {
+                font-size: 16px;
+                top: 10px;
+                left: 10px;
+            }
+            .background-container {
+                background-size: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .user-form-container {
+                font-size: 14px;
+                top: 5px;
+                left: 5px;
+            }
+            .background-container {
+                background-size: 90%;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .user-form-container {
+                font-size: 12px;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .background-container {
+                background-size: 80%;
+            }
+        } 
+    </style>
+
+    <div class="background-container">
+            <div class="user-form-container">
+                {% include "global/partials/_user_form.html" %}
+            </div>
+    </div>
+{% endblock block %}
